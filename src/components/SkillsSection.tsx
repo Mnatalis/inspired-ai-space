@@ -1,20 +1,21 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const skillCategories = [
   {
-    title: "Machine Learning",
+    key: "ml" as const,
     skills: ["TensorFlow", "PyTorch", "Scikit-learn", "XGBoost", "Keras", "JAX"],
   },
   {
-    title: "AI Frameworks",
+    key: "ai" as const,
     skills: ["LangChain", "Hugging Face", "OpenAI API", "Anthropic", "LlamaIndex", "AutoGen"],
   },
   {
-    title: "Languages & Tools",
+    key: "tools" as const,
     skills: ["Python", "TypeScript", "SQL", "Docker", "Kubernetes", "Git"],
   },
   {
-    title: "Cloud & MLOps",
+    key: "cloud" as const,
     skills: ["AWS", "GCP", "Azure ML", "MLflow", "Weights & Biases", "Kubeflow"],
   },
 ];
@@ -29,6 +30,8 @@ const technologies = [
 ];
 
 const SkillsSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="skills" className="py-32 relative">
       <div className="container px-4">
@@ -40,10 +43,10 @@ const SkillsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Skills & <span className="text-gradient">Technologies</span>
+            {t.skills.title} <span className="text-gradient">{t.skills.titleHighlight}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            The tools and technologies I use to bring AI solutions to life
+            {t.skills.subtitle}
           </p>
         </motion.div>
 
@@ -91,14 +94,16 @@ const SkillsSection = () => {
           >
             {skillCategories.map((category, index) => (
               <motion.div
-                key={category.title}
+                key={category.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 + 0.2, duration: 0.5 }}
                 className="glass rounded-xl p-6"
               >
-                <h3 className="text-lg font-semibold mb-4 text-gradient">{category.title}</h3>
+                <h3 className="text-lg font-semibold mb-4 text-gradient">
+                  {t.skills.categories[category.key]}
+                </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span

@@ -2,16 +2,19 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-
-const navLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { href: "#about", label: t.nav.about },
+    { href: "#projects", label: t.nav.projects },
+    { href: "#skills", label: t.nav.skills },
+    { href: "#contact", label: t.nav.contact },
+  ];
 
   return (
     <motion.nav
@@ -29,7 +32,7 @@ const Navbar = () => {
             </a>
 
             {/* Desktop navigation */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-6">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -39,23 +42,27 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+              <LanguageSwitcher />
               <Button variant="hero" size="sm" asChild>
-                <a href="#contact">Hire Me</a>
+                <a href="#contact">{t.nav.hireMe}</a>
               </Button>
             </div>
 
             {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
+            <div className="md:hidden flex items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                className="p-2"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle menu"
+              >
+                {isOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -80,7 +87,7 @@ const Navbar = () => {
             ))}
             <Button variant="hero" size="sm" className="w-full" asChild>
               <a href="#contact" onClick={() => setIsOpen(false)}>
-                Hire Me
+                {t.nav.hireMe}
               </a>
             </Button>
           </div>
