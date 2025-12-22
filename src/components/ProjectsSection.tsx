@@ -65,7 +65,7 @@ const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-gradient">Projects</span>
+            Обрані <span className="text-gradient">Проекти</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of AI solutions that push the boundaries of what's possible
