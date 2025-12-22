@@ -6,6 +6,7 @@ import { Mail, MapPin, Github, Linkedin, Twitter } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
+import aiVeteransImage from "@/assets/ai-veterans.png";
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
@@ -159,6 +160,28 @@ const ContactSection = () => {
             </form>
           </motion.div>
         </div>
+
+        {/* AI for Veterans Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mt-20 max-w-4xl mx-auto"
+        >
+          <a 
+            href="#" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-2xl border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+          >
+            <img 
+              src={aiVeteransImage} 
+              alt="AI для ветеранів, ВПО і родин захисників - Онлайн курс з AI"
+              className="w-full h-auto object-cover"
+            />
+          </a>
+        </motion.div>
       </div>
     </section>
   );
