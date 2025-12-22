@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated background orbs */}
@@ -36,7 +39,7 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm text-muted-foreground">AI Solutions Architect</span>
+            <span className="text-sm text-muted-foreground">{t.hero.badge}</span>
           </motion.div>
 
           {/* Main heading */}
@@ -46,8 +49,8 @@ const HeroSection = () => {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
           >
-            Building the Future with{" "}
-            <span className="text-gradient">Intelligent AI</span>
+            {t.hero.title}{" "}
+            <span className="text-gradient">{t.hero.titleHighlight}</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -57,8 +60,7 @@ const HeroSection = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Crafting innovative AI solutions that transform ideas into reality. 
-            From machine learning to neural networks, bringing intelligence to life.
+            {t.hero.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -69,10 +71,10 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="#projects">Explore My Work</a>
+              <a href="#projects">{t.hero.cta}</a>
             </Button>
             <Button variant="glass" size="xl" asChild>
-              <a href="#contact">Get in Touch</a>
+              <a href="#contact">{t.hero.ctaSecondary}</a>
             </Button>
           </motion.div>
         </motion.div>
@@ -89,7 +91,7 @@ const HeroSection = () => {
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             className="flex flex-col items-center gap-2 text-muted-foreground"
           >
-            <span className="text-sm">Scroll to explore</span>
+            <span className="text-sm">{t.hero.scroll}</span>
             <ArrowDown className="w-5 h-5" />
           </motion.div>
         </motion.div>
