@@ -173,7 +173,7 @@ const ContactSection = () => {
             href="#" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="block overflow-hidden rounded-2xl border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10"
+            className="block overflow-hidden rounded-2xl border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 max-w-xs mx-auto"
           >
             <img 
               src={aiVeteransImage} 
