@@ -177,7 +177,7 @@ const ContactSection = () => {
           >
             <img 
               src={aiVeteransImage} 
-              alt="AI для ветеранів, ВПО і родин захисників - Онлайн курс з AI"
+              alt={t.contact.veteransBanner}
               className="w-full h-auto object-cover"
             />
           </a>
