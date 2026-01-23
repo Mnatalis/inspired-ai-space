@@ -104,9 +104,10 @@ export const translations = {
         message: "Message",
         messagePlaceholder: "Tell me about your project...",
         submit: "Send Message",
-        success: "Message sent successfully! I'll get back to you soon.",
-      },
+      success: "Message sent successfully! I'll get back to you soon.",
     },
+    veteransBanner: "AI for Veterans, IDPs, and Families of Defenders - Online AI Course",
+  },
     // Footer
     footer: {
       rights: "All rights reserved.",
@@ -219,6 +220,7 @@ export const translations = {
         submit: "Надіслати",
         success: "Повідомлення надіслано! Я зв'яжуся з вами найближчим часом.",
       },
+      veteransBanner: "AI для ветеранів, ВПО і родин захисників - Онлайн курс з AI",
     },
     // Footer
     footer: {
@@ -303,6 +305,7 @@ export type Translations = {
       submit: string;
       success: string;
     };
+    veteransBanner: string;
   };
   footer: {
     rights: string;
